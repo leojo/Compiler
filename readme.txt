@@ -12,3 +12,5 @@ like so:
 >java Compiler name.extension -v
 
 (The order of the file name and the "-v" argument doesn't matter)
+
+P.s. there are two example programs in the repo called "FiboTest.s" and "ReverseInteger.s".
