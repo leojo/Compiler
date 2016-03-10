@@ -1,0 +1,7 @@
+*.mexe
+*.masm
+*.class
+SNORRI/NanoMorpho.java
+SNORRI/NanoMorpho_SNORRI.jflex
+ParserTest
+*.jflex
