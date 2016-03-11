@@ -130,8 +130,8 @@ public class Compiler{
 				return;
 			case IF:
 				//inter = {CodeType codeType, Object[] exprInterIF, Object[] bodyInterIF,
-				//			(Object[] exprInterELIF, Object[] bodyInterELIF)... , 
-				//			(Object[] bodyInterELSE)? }
+				//		(Object[] exprInterELIF, Object[] bodyInterELIF)... , 
+				//		(Object[] bodyInterELSE)? }
 				int elseLab = newLab();
 				generateExpression((Object[])inter[1]);
 				emit("(GoFalse _"+elseLab+")");
