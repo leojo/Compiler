@@ -26,9 +26,9 @@ public class Compiler{
 	// CODE GENERATING FUNCTIONS
 	
 	// Before:	inter is an object array containing elements which meet
-	//			the before criteria of the generateFunction method
+	//		the before criteria of the generateFunction method
 	// After:	A morpho assembly code version of the program represented
-	//			by inter is in lines, with the name <name>.mexe
+	//		by inter is in lines, with the name <name>.mexe
 	private static void generateProgram(String name, Object[] inter){
 		emit("\""+name+".mexe\" = main in");
 		emit("!{{");
@@ -42,7 +42,7 @@ public class Compiler{
 	// Before:	inter is an object array with the following internal structure
 	//{String fname, Integer num_args, Integer num_vars, Object[]... exprInterCode}
 	// After:	The morpho assembly code for the function fname has been written to
-	//			the class variable lines.
+	//		the class variable lines.
 	private static void generateFunction(Object[] inter){
 		String fName = (String) inter[0];
 		int numArgs = (int) inter[1];
@@ -69,7 +69,7 @@ public class Compiler{
 	// Before:	inter is an object array with the following internal structure
 	// {Object[] smallExprInter, (String operator, Object[] smallExprInter)...}
 	// After:	Morpho assembly code for the expression has been written to the class
-	//			variable lines. The assembly code has the following Before/After:
+	//		variable lines. The assembly code has the following Before/After:
 	// Assembly Before:	The accumulator may be safely overwritten
 	// Assembly After:	The value of the expression is in the accumulator
 	private static void generateExpression(Object[] inter){
@@ -83,11 +83,11 @@ public class Compiler{
 	}
 	
 	// Before:	inter is an object array with the following internal structure
-	//			{CodeType codeType, Object... codeTypeSpecificObject}
-	//			<A more detailed description is inside each switch statement>
+	//		{CodeType codeType, Object... codeTypeSpecificObject}
+	//		<A more detailed description is inside each switch statement>
 	// After:	Morpho assembly code for the small expression has been written to
-	//			the class variable lines.
-	//			The assembly code has the following Before/After:
+	//		the class variable lines.
+	//		The assembly code has the following Before/After:
 	// Assembly Before:	The accumulator may be safely overwritten
 	// Assembly After:	The value of the small expression is in the accumulator
 	private static void generateSmallExpression(Object[] inter){
@@ -181,9 +181,9 @@ public class Compiler{
 	
 
 	// Before:	inter is an object array with the following internal structure
-	//			{Object[]... exprInter}
+	//		{Object[]... exprInter}
 	// After:	The morho assembly code for the body has been stored in the class
-	//			variable lines. The assembly code has the following Before/After:
+	//		variable lines. The assembly code has the following Before/After:
 	// Assembly Before:	The accumulator may be safely overwritten
 	// Assembly After: 	The value of the last expression executed is in the accumulator 
 	private static void generateBody(Object[] inter){
