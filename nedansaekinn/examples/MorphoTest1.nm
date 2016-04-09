@@ -1,0 +1,20 @@
+test(n) {
+	var s;
+	s="This happens at the very least";
+	if(n==1) {
+		s = "Charmander!";
+	}elsif(n==2) {
+		s = "Squirtle!";
+		if(n == 2 && !(n == 1)) {
+			s = s ++ " You definitely didn't choose charmander";
+		}; 
+	} else {
+		s = "Doh! Bulbasaur. Better luck next time.";
+	};
+
+	return s;
+}
+
+main() {
+	writeln("You have chosen... " ++ test(2));
+}
