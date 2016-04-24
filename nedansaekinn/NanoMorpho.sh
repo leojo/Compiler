@@ -1,5 +1,5 @@
 #!/bin/bash
-HELP1="Incorrect usage:" #new-line didn't work, therefore this hack!
+HELP1="Incorrect usage:"
 HELP2="To compile a program run the command"
 HELP3=">NanoMorpho.sh -c [full name of source file]"
 HELP4="To run a compiled program run the command"

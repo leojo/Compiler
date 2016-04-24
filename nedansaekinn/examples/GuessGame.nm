@@ -1,0 +1,23 @@
+main(){
+	var line, number, firstGuess, numGuesses;
+	firstGuess = false;
+	number = (random(100)+1)++"";
+	numGuesses = 0;
+	writeln("I have picked a number between 1 and 100! Now it's time for you to guess!");
+	writeln("Note: Due to NanoMorpho constraints input is read as a string and as such the comparison\n      will be an alphabetical comparison of the numbers but not a numerical one\n      i.e. the order of the numbers is:\n      1, 10, 100, 11, 12,..., 19, 2, 20, 21,..., 29, 3, 30, 31,..., 89, 9, 90, 91,..., 99");
+	while(line != number){
+		if(firstGuess){
+			writeln("Guess again!");
+		} else {
+			firstGuess = true;
+		};
+		line = readLine();
+		if(line>number){
+			writeln("Too high.");
+		} elsif (line < number){
+			writeln("Too low.");
+		};
+		numGuesses = numGuesses+1;
+	};
+	writeln("You did it! You figured out my number in "++numGuesses++" tries.");
+}

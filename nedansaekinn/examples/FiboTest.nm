@@ -1,5 +1,11 @@
+#Use : f = fibo(x);
+#Pre : x is an integer >= 0
+#Post: f is the x-th fibonacci number
 fibo(n){
-	if(n<2){
+	if(n==0){
+		return 0;
+	}
+	elsif(n<2){
 		return 1;
 	};
 	return fibo(n-1)+fibo(n-2);
