@@ -7,8 +7,8 @@
 	import java.nio.file.Files;
 %}
 
-%right '='
 %right RETURN
+%right '='
 %left OP
 %token <sval> OP,LITERAL,NAME
 %token IF,ELSE,ELSIF,WHILE,VAR,RETURN
