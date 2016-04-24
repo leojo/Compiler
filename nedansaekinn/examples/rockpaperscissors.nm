@@ -1,0 +1,94 @@
+#Rock-paper-scissors game made by Andrea Bjork Bjornsdottir
+rockPaperScissors(bestOutOfn) {
+	var computerAction, playerAction, turns, computerScore, playerScore, message;
+	turns = 0;
+	computerScore = 0;
+	playerScore = 0;
+	message = "";
+	
+	# Play until we are out of turns.
+	while(turns < int(bestOutOfn)) {
+		# The computer will randomly roll either "rock", "paper" or "scissors"
+		computerAction = generateComputerAction();
+		playerAction = readLine();
+		if((playerAction != "rock") && (playerAction != "paper") && (playerAction != "scissors")) {
+			writeln("Wrong input! You have to type in either 'rock', 'paper' or 'scissors'. Try again: ");
+		} else {
+			writeln("");
+			writeln("Player has chosen "++(playerAction++"."));
+			writeln("Computer has chosen "++(computerAction++"."));
+			# We can take advantage of the fact that strings are comparable using the dictionary
+			# order of the words. That means "paper" < "rock" < "scissors".
+			
+			# Possible outcomes are then: player = computer, player < computer 
+
+			if(playerAction == computerAction) {
+				message = "Draw! Player: "++(playerScore++(" Computer: "++computerScore));
+				turns = turns - 1;
+			} elsif(playerAction < computerAction) {
+				# Player either has paper or rock
+				# if player has rock, computer has scissors and they win. 
+				# If computer has rock, player has paper and they still win.
+				if(playerAction == "rock" || computerAction == "rock") {
+					# the computer must have chosen scissors
+					playerScore = playerScore + 1;
+					message = "You win this round! Player: "++(playerScore++(" Computer: "++computerScore));
+				} else {
+					computerScore = computerScore + 1;
+					message = "I win this round! Player: "++(playerScore++(" Computer: "++computerScore));
+				};
+			}else{
+				# player has either rock or scissors
+				if(playerAction == "rock" || computerAction == "rock") {
+					computerScore = computerScore + 1;
+					message = "I win this round! Player: "++(playerScore++(" Computer: "++computerScore));
+				}else {
+					playerScore = playerScore + 1;
+					message = "You win this round! Player: "++(playerScore++(" Computer: "++computerScore));
+				};
+			};
+			turns = turns+1;
+			writeln(message);
+			writeln("");
+			writeln("Rounds left: "++(int(bestOutOfn)-turns));
+			writeln("Choose again: Rock-paper-scissors!");
+			writeln("");
+		};
+	};
+
+	if(playerScore > computerScore) {
+		writeln("Congratulations! You win the game!");
+	}else {
+		writeln("You lose!");
+	};
+}
+
+generateComputerAction() {
+	var rand, action;
+	rand = random(3);
+	if(rand == 0) { 
+		action="rock";
+	} elsif(rand == 1) {
+		action="paper";
+	} elsif(rand == 2) {
+		action="scissors";
+	} else {
+		action="";
+		writeln("Random generator function not working!");
+	};
+
+	return action;
+}
+
+main(){
+	var N, playAgain;
+	playAgain = "y";
+	while(playAgain == "Y" || playAgain == "y") {
+		writeln("Welcome to Rock - Paper - Scissors! How many turns would you like to play?");
+		N = readLine();
+		writeln("On we go then! Type in 'rock', 'paper' or 'scissors' to start the game.");
+		rockPaperScissors(N);
+		writeln("Would you like to play again? Y/N");
+		playAgain = readLine();
+	}; 
+}
